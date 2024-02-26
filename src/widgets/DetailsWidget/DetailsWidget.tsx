@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./DetailsWidget.scss";
 import background from "../../shared/assets/DetailsWidget/background.svg";
 import location from "../../shared/assets/DetailsWidget/location.svg";
-import arrowLeft from "../../shared//assets/DetailsWidget/ArrowLeft.svg";
+import arrowLeft from "../../shared//assets/DetailsWidget/arrowLeft.svg";
 import { useNavigate } from "react-router";
 import FeedbackModal from "./FeedbackModal/FeedbackModal";
 
