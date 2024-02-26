@@ -1,4 +1,3 @@
-import React from "react";
 import DiscoverCardEntity from "../../entities/DiscoverCardEntity/DiscoverCardEntity";
 
 const DiscoverListWidget = () => {

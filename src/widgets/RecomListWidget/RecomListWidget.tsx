@@ -1,4 +1,3 @@
-import React from "react";
 import RecomCardEntity from "../../entities/RecomCardEntity/RecomCardEntity";
 import "./RecomListWidget.scss";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import leftBtn from "../../shared/assets/DiscoverCardEntity/leftBtn.svg";
 import rightBtn from "../../shared/assets/DiscoverCardEntity/rightBtn.svg";
 import "./DiscoverCardEntity.scss";

@@ -1,4 +1,3 @@
-import React from "react";
 import "./FeedbackModal.scss";
 import closeModal from "../../../shared/assets/FeedbackModal/closeModal.svg";
 import flagKg from "../../../shared/assets/FeedbackModal/flagKg.svg";

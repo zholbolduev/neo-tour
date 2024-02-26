@@ -1,4 +1,3 @@
-import React from "react";
 import DetailsWidget from "../../widgets/DetailsWidget/DetailsWidget";
 
 const DetailsPage = () => {

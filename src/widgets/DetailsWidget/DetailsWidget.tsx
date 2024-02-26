@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./DetailsWidget.scss";
 import background from "../../shared/assets/DetailsWidget/background.svg";
 import location from "../../shared/assets/DetailsWidget/location.svg";
@@ -74,7 +74,11 @@ const DetailsWidget = () => {
         </button>
       </main>
 
-      {isModalOpen && <FeedbackModal closeModal={closeModal} />}
+      {isModalOpen && (
+        <FeedbackModal
+        //    closeModal={closeModal}
+        />
+      )}
     </div>
   );
 };

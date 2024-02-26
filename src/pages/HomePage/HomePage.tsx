@@ -1,4 +1,3 @@
-import React from "react";
 import HeaderWidget from "../../widgets/HeaderWidget/HeaderWidget";
 import "./HomePage.scss";
 import DiscoverListWidget from "../../widgets/DiscoverListWidget/DiscoverListWidget";

@@ -1,4 +1,3 @@
-import React from "react";
 import "./HeaderWidget.scss";
 import Person from "../../shared/assets/HeaderEntity/personMountain.svg";
 
