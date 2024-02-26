@@ -16,10 +16,10 @@ const DetailsWidget = () => {
     document.body.style.overflow = "hidden";
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    document.body.style.overflow = "auto";
-  };
+  //   const closeModal = () => {
+  //     setIsModalOpen(false);
+  //     document.body.style.overflow = "auto";
+  //   };
 
   return (
     <div className="detailsWidget">
