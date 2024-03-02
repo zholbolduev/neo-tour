@@ -4,8 +4,13 @@ import {
   ThunkAction,
   Action,
 } from "@reduxjs/toolkit";
+import recCardReducer from "../widgets/RecomListWidget/RecomListWidgetSlice";
+import disCardReducer from "../widgets/DiscoverListWidget/DiscoverListWidgetSlice";
 
-const rootReducers = combineReducers({});
+const rootReducers = combineReducers({
+  recCards: recCardReducer,
+  disCards: disCardReducer,
+});
 
 export const setupStore = () => {
   return configureStore({

@@ -1,22 +1,21 @@
 import "./RecomCardEntity.scss";
 import { useNavigate } from "react-router";
+import { FC } from "react";
+import { RecCard } from "../types";
 
-const RecomCardEntity = () => {
+const RecomCardEntity: FC<RecCard> = ({ id, name, photo }: RecCard) => {
   const navigate = useNavigate();
 
   return (
     <div
       className="RecomCardEntity"
       onClick={() => {
-        navigate(`/details/${12}`);
+        navigate(`/details/${id}`);
       }}
     >
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5BUAryby3x6k2W1DFNixOUmgH8_PHoz0D2w&usqp=CAU"
-        alt="Wait"
-      />
+      <img src={photo} alt="Wait" />
       <div className="RecomCardEntity__overlay">
-        <span>Greenough. Montana</span>
+        <span>{name}</span>
       </div>
     </div>
   );

@@ -1,91 +1,30 @@
 .discoverCardEntity {
-  padding: 160px 60px 0px 60px;
+  position: relative;
+  width: 384px;
+  height: 290px;
+  cursor: pointer;
 
-  &__head {
-    display: flex;
-    justify-content: space-between;
+  > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+  }
+  &__textOverlay {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0px 0px 20px 20px;
+    padding: 10px 16px;
+    width: 100%;
 
-    > h2 {
-      color: var(--Black, #141414);
+    > span {
+      color: #fff;
       font-family: Manrope;
-      font-size: 48px;
+      font-size: 28px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
-    }
-
-    &__btnBlock {
-      > button {
-        border: none;
-        cursor: pointer;
-      }
-
-      > button:first-child {
-        margin-right: 20px;
-      }
-    }
-  }
-
-  &__list {
-    margin-top: 34px;
-    margin-bottom: 82px;
-    ul {
-      list-style-type: none;
-      display: flex;
-      justify-content: flex-start;
-    }
-
-    ul li {
-      margin-right: 68px;
-    }
-
-    ul li:last-child {
-      margin-right: 0;
-    }
-
-    ul li a {
-      color: var(--Black, #141414);
-      font-family: "Manrope";
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      cursor: pointer;
-    }
-
-    ul li a:hover {
-      color: var(--Primary, #6a62b7);
-    }
-  }
-
-  &__card {
-    position: relative;
-    width: 384px;
-    height: 290px;
-    cursor: pointer;
-
-    > img {
-      width: 100%;
-      height: 100%;
-      border-radius: 20px;
-    }
-    &__textOverlay {
-      position: absolute;
-      bottom: 0px;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 0px 0px 20px 20px;
-      padding: 10px 16px;
-      width: 100%;
-
-      > span {
-        color: #fff;
-        font-family: Manrope;
-        font-size: 28px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-      }
     }
   }
 }

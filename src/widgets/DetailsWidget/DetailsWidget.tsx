@@ -1,12 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./DetailsWidget.scss";
-import background from "../../shared/assets/DetailsWidget/background.svg";
+// import background from "../../shared/assets/DetailsWidget/background.svg";
 import location from "../../shared/assets/DetailsWidget/location.svg";
 import arrowLeft from "../../shared//assets/DetailsWidget/arrowLeft.svg";
 import { useNavigate } from "react-router";
 import FeedbackModal from "./FeedbackModal/FeedbackModal";
+import { getOneCard } from "./DetailsWidgetAction";
+import { useParams } from "react-router-dom";
 
-const DetailsWidget = () => {
+const DetailsWidget: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const [card, setCard] = useState({});
+
+  card;
+
+  useEffect(() => {
+    const fetchOneCard = async () => {
+      if (!id) {
+        console.error("ID is not defined");
+        return;
+      }
+
+      try {
+        const oneCard = await getOneCard(id);
+        setCard(oneCard);
+      } catch (error) {
+        console.error("Error fetching card:", error);
+      }
+    };
+    fetchOneCard();
+  }, [id]);
+
+  // ------------MODAL WINDOW Start-----------
+
   const navigate = useNavigate();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,15 +42,18 @@ const DetailsWidget = () => {
     document.body.style.overflow = "hidden";
   };
 
-  //   const closeModal = () => {
-  //     setIsModalOpen(false);
-  //     document.body.style.overflow = "auto";
-  //   };
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = "auto";
+  };
 
   return (
     <div className="detailsWidget">
       <header>
-        <img src={background} alt="background" />
+        <img
+          // src={card.photo}
+          alt="background"
+        />
         <button onClick={() => navigate("/")}>
           {" "}
           <img src={arrowLeft} alt="ArrowLeft" className="arrowLeft" />
@@ -35,20 +64,16 @@ const DetailsWidget = () => {
       <main className="detailsWidget__main">
         <div className="detailsWidget__main__info">
           <div className="detailsWidget__main__info__head">
-            <h1>Mount Fuji</h1>
+            {/* <h1>{card.name}</h1> */}
             <span>
               <img src={location} alt="location" />
-              Honshu, Japan
+              {/* {card.location}{" "} */}
             </span>
           </div>
 
           <div className="detailsWidget__main__info__description">
             <h2>Description</h2>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
-              ea veniam. Aut, labore tempore? Facere ullam dolor deserunt minus
-              molestias.
-            </p>
+            {/* <p>{card.description}</p> */}
           </div>
         </div>
 
@@ -74,11 +99,7 @@ const DetailsWidget = () => {
         </button>
       </main>
 
-      {isModalOpen && (
-        <FeedbackModal
-        //    closeModal={closeModal}
-        />
-      )}
+      {isModalOpen && <FeedbackModal onClose={closeModal} />}
     </div>
   );
 };
