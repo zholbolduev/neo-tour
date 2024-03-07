@@ -18,6 +18,13 @@
       > button {
         border: none;
         cursor: pointer;
+        text-decoration: none; /* Убираем подчеркивание */
+        background: none; /* Убираем фон */
+        padding: 0; /* Убираем отступы */
+        margin: 0; /* Убираем отступы */
+        font: inherit; /* Наследуем шрифт */
+        outline: none; /* Убираем контур фокуса */
+        color: inherit;
       }
 
       > button:first-child {
@@ -38,6 +45,10 @@
     ul li {
       margin-right: 68px;
     }
+    ul li.active a {
+      color: #6a62b7;
+      font-weight: bold;
+    }
 
     ul li:last-child {
       margin-right: 0;
@@ -56,5 +67,20 @@
     ul li a:hover {
       color: var(--Primary, #6a62b7);
     }
+
+    ul li p {
+      width: 8px;
+      height: 8px;
+      background-color: #6a62b7;
+      border-radius: 100%;
+      margin-left: 45%;
+      margin-top: 10px;
+    }
   }
+}
+
+.cardList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
 }

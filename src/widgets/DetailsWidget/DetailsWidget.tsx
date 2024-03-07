@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react";
 import "./DetailsWidget.scss";
-// import background from "../../shared/assets/DetailsWidget/background.svg";
 import location from "../../shared/assets/DetailsWidget/location.svg";
-import arrowLeft from "../../shared//assets/DetailsWidget/arrowLeft.svg";
+import arrowLeft from "../../shared/assets/DetailsWidget/arrowLeft.svg";
 import { useNavigate } from "react-router";
 import FeedbackModal from "./FeedbackModal/FeedbackModal";
 import { getOneCard } from "./DetailsWidgetAction";
 import { useParams } from "react-router-dom";
 
+export interface Card {
+  id: number;
+  name: string;
+  description: string;
+  location: string;
+  photo: string;
+  category: number;
+}
+
 const DetailsWidget: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [card, setCard] = useState({});
-
-  card;
+  const [card, setCard] = useState<Card | null>(null);
 
   useEffect(() => {
     const fetchOneCard = async () => {
@@ -50,10 +56,11 @@ const DetailsWidget: React.FC = () => {
   return (
     <div className="detailsWidget">
       <header>
-        <img
-          // src={card.photo}
-          alt="background"
-        />
+        {card ? (
+          <img src={card.photo} alt="background" />
+        ) : (
+          <div>Loading...</div>
+        )}
         <button onClick={() => navigate("/")}>
           {" "}
           <img src={arrowLeft} alt="ArrowLeft" className="arrowLeft" />
@@ -62,20 +69,24 @@ const DetailsWidget: React.FC = () => {
       </header>
 
       <main className="detailsWidget__main">
-        <div className="detailsWidget__main__info">
-          <div className="detailsWidget__main__info__head">
-            {/* <h1>{card.name}</h1> */}
-            <span>
-              <img src={location} alt="location" />
-              {/* {card.location}{" "} */}
-            </span>
-          </div>
+        {card ? (
+          <div className="detailsWidget__main__info">
+            <div className="detailsWidget__main__info__head">
+              <h1>{card.name}</h1>
+              <span>
+                <img src={location} alt="location" />
+                {card.location}{" "}
+              </span>
+            </div>
 
-          <div className="detailsWidget__main__info__description">
-            <h2>Description</h2>
-            {/* <p>{card.description}</p> */}
+            <div className="detailsWidget__main__info__description">
+              <h2>Description</h2>
+              <p>{card.description}</p>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div>Loading...</div>
+        )}
 
         <div className="detailsWidget__main__comment">
           <h2>Reviews</h2>
@@ -93,7 +104,6 @@ const DetailsWidget: React.FC = () => {
             </span>
           </p>
         </div>
-
         <button onClick={openModal} className="detailsWidget__main--btnBook">
           Book now
         </button>

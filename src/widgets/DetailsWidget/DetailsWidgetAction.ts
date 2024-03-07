@@ -1,12 +1,19 @@
 import axios from "axios";
 import { baseAPI } from "../../shared/BaseAPI";
+import { Card } from "./DetailsWidget";
 
-export const getOneCard = async (id: string) => {
+export const getOneCard = async (id: string): Promise<Card> => {
   try {
-    const response = await axios.get(`${baseAPI}/api/tour/${id}`);
-    if (response.data && response.data.card && response.data.card.length > 0) {
-      return response.data.meals[0];
+    const response = await axios.get(`${baseAPI}/api/tours/${id}/`, {
+      auth: {
+        username: "admin",
+        password: "admin",
+      },
+    });
+    if (response.data && response.data.card) {
+      return response.data.card as Card;
     } else {
+      console.error("No card data found");
       throw new Error("No card data found");
     }
   } catch (error) {

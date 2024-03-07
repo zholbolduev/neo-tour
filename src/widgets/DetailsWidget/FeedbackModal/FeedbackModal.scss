@@ -111,6 +111,10 @@
               transition: 300ms;
             }
 
+            > button.endPerson {
+              background: #b4b0da;
+            }
+
             > p {
               margin-left: 17px;
               margin-right: 17px;
@@ -154,7 +158,6 @@
         gap: 10px;
         flex-shrink: 0;
         border-radius: 28px;
-        background: var(--Primary, #6a62b7);
         color: #fff;
         font-family: Manrope;
         font-size: 24px;
@@ -163,11 +166,6 @@
         line-height: normal;
         border: none;
         cursor: pointer;
-      }
-
-      > button:hover {
-        background: #b4b0da;
-        transition: 300ms;
       }
     }
   }
@@ -180,4 +178,53 @@ span {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.alertText {
+  color: var(--Black, #141414);
+  font-family: Manrope;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 20px;
+}
+
+.alertBtn {
+  margin-top: 35px;
+  cursor: pointer;
+  height: 50px;
+  padding: 13px 130px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: var(--Primary, #6a62b7);
+  color: #fff;
+  font-family: Manrope;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  outline: none;
+  border: none;
+}
+
+.alertBtn:hover {
+  background: #b4b0da;
+  transition: 300ms;
+}
+
+.emptyBtn {
+  background: #b4b0da;
+}
+
+.fullBtn {
+  background: var(--Primary, #6a62b7);
+  transition: 300ms;
+}
+
+.fullBtn:hover {
+  background: #b4b0da;
+  transition: 300ms;
 }
