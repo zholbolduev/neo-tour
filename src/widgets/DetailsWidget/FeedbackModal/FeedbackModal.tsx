@@ -14,20 +14,20 @@ interface FeedbackModalProps {
 Modal.setAppElement("#root");
 
 const FeedbackModal: React.FC<FeedbackModalProps> = ({ onClose }) => {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [peopleCount, setPeopleCount] = useState(1);
-  const [comment, setComment] = useState("");
+  const [phone_number, setPhoneNumber] = useState("");
+  const [number_of_people, setPeopleCount] = useState(1);
+  const [comments, setComment] = useState("");
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<string | null>(null);
 
   const decreasePeopleCount = () => {
-    if (peopleCount > 1) {
+    if (number_of_people > 1) {
       setPeopleCount((prevCount) => prevCount - 1);
     }
   };
 
   const increasePeopleCount = () => {
-    if (peopleCount < 6) {
+    if (number_of_people < 6) {
       setPeopleCount((prevCount) => prevCount + 1);
     }
   };
@@ -43,12 +43,12 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({ onClose }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (phoneNumber.trim() > "4" && comment.trim() == "") {
+    if (phone_number.trim() > "4" && comments.trim() == "") {
       return alert("Заполните все поля!");
     }
 
     try {
-      await submitFeedback({ phoneNumber, peopleCount, comment });
+      await submitFeedback({ phone_number, number_of_people, comments });
       setSubmitStatus("Your trip has been booked!");
     } catch (error) {
       setSubmitStatus("The tour can’t be booked");
@@ -95,7 +95,7 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({ onClose }) => {
                     lineHeight: "normal",
                   }}
                   country={"kg"}
-                  value={phoneNumber}
+                  value={phone_number}
                   onChange={handleOnChangePhone}
                   inputProps={{
                     placeholder: "Enter your phone number",
@@ -108,7 +108,7 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({ onClose }) => {
                 <input
                   type="text"
                   placeholder="Write your wishes to trip..."
-                  value={comment}
+                  value={comments}
                   onChange={handleOnChangeComment}
                 />
               </div>
@@ -119,17 +119,17 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({ onClose }) => {
                 <div className="feedbackModal__modal__inputsBlock__people__choise">
                   <div className="feedbackModal__modal__inputsBlock__people__choise__count">
                     <button
-                      className={1 == peopleCount ? "endPerson" : ""}
+                      className={1 == number_of_people ? "endPerson" : ""}
                       type="button"
                       onClick={decreasePeopleCount}
                     >
                       -
                     </button>
-                    <p>{peopleCount}</p>
+                    <p>{number_of_people}</p>
                     <button
                       type="button"
                       onClick={increasePeopleCount}
-                      className={6 == peopleCount ? "endPerson" : ""}
+                      className={6 == number_of_people ? "endPerson" : ""}
                     >
                       +
                     </button>
@@ -137,13 +137,13 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({ onClose }) => {
 
                   <img src={userImg} alt="User Img" />
                   <p>
-                    {peopleCount} Person{peopleCount !== 1 ? "s" : ""}
+                    {number_of_people} Person{number_of_people !== 1 ? "s" : ""}
                   </p>
                 </div>
               </div>
 
               <button
-                className={comment.trim() == "" ? "emptyBtn" : "fullBtn"}
+                className={comments.trim() == "" ? "emptyBtn" : "fullBtn"}
                 type="submit"
               >
                 Submit

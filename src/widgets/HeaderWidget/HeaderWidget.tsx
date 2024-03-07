@@ -4,7 +4,9 @@ import Person from "../../shared/assets/HeaderEntity/personMountain.svg";
 const HeaderWidget = () => {
   const scrollToNextComponent = () => {
     const nextComponent = document.getElementById("scroll");
-    nextComponent.scrollIntoView({ behavior: "smooth" });
+    if (nextComponent) {
+      nextComponent.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
