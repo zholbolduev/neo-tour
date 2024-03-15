@@ -48,7 +48,11 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({ onClose }) => {
     }
 
     try {
-      await submitFeedback({ phone_number, number_of_people, comments });
+      await submitFeedback({
+        phone_number,
+        number_of_people,
+        comments,
+      });
       setSubmitStatus("Your trip has been booked!");
     } catch (error) {
       setSubmitStatus("The tour can’t be booked");

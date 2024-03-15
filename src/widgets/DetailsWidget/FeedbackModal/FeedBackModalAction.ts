@@ -5,11 +5,11 @@ interface FeedbackData {
   phone_number: string;
   number_of_people: number;
   comments: string;
-  booking_date: 3;
-  status: "fd";
-  user: 2;
-  tour: 1;
 }
+// booking_date: 3;
+// status: "fd";
+// user: 2;
+// tour: 1;
 
 export const submitFeedback = async (data: FeedbackData): Promise<void> => {
   try {
@@ -23,6 +23,7 @@ export const submitFeedback = async (data: FeedbackData): Promise<void> => {
     if (response.status !== 200) {
       throw new Error("Failed to submit feedback");
     }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error("Error submitting feedback:", error.message);
     throw error;

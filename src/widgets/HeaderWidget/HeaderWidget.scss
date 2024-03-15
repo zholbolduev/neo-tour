@@ -63,4 +63,10 @@
       flex-shrink: 0;
     }
   }
+
+  @media only screen and (max-width: 975px) {
+    &__imgBlock {
+      display: none;
+    }
+  }
 }
